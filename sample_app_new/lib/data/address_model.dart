@@ -3,11 +3,12 @@
 
 class AddressModel {
   AddressModel({
-      Page? page, 
-      Result? result,}){
+    Page? page,
+    Result? result,
+  }) {
     _page = page;
     _result = result;
-}
+  }
 
   AddressModel.fromJson(dynamic json) {
     _page = json['page'] != null ? Page.fromJson(json['page']) : null;
@@ -29,7 +30,6 @@ class AddressModel {
     }
     return map;
   }
-
 }
 
 /// crs : "EPSG:900913"
@@ -38,13 +38,14 @@ class AddressModel {
 
 class Result {
   Result({
-      String? crs, 
-      String? type, 
-      List<Items>? items,}){
+    String? crs,
+    String? type,
+    List<Items>? items,
+  }) {
     _crs = crs;
     _type = type;
     _items = items;
-}
+  }
 
   Result.fromJson(dynamic json) {
     _crs = json['crs'];
@@ -73,7 +74,6 @@ class Result {
     }
     return map;
   }
-
 }
 
 /// id : "4113510900106240000"
@@ -82,17 +82,19 @@ class Result {
 
 class Items {
   Items({
-      String? id, 
-      Address? address, 
-      Point? point,}){
+    String? id,
+    Address? address,
+    Point? point,
+  }) {
     _id = id;
     _address = address;
     _point = point;
-}
+  }
 
   Items.fromJson(dynamic json) {
     _id = json['id'];
-    _address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    _address =
+        json['address'] != null ? Address.fromJson(json['address']) : null;
     _point = json['point'] != null ? Point.fromJson(json['point']) : null;
   }
   String? _id;
@@ -114,7 +116,6 @@ class Items {
     }
     return map;
   }
-
 }
 
 /// x : "14148853.48172358"
@@ -122,11 +123,12 @@ class Items {
 
 class Point {
   Point({
-      String? x, 
-      String? y,}){
+    String? x,
+    String? y,
+  }) {
     _x = x;
     _y = y;
-}
+  }
 
   Point.fromJson(dynamic json) {
     _x = json['x'];
@@ -144,7 +146,6 @@ class Point {
     map['y'] = _y;
     return map;
   }
-
 }
 
 /// zipcode : "13487"
@@ -156,19 +157,20 @@ class Point {
 
 class Address {
   Address({
-      String? zipcode, 
-      String? category, 
-      String? road, 
-      String? parcel, 
-      String? bldnm, 
-      String? bldnmdc,}){
+    String? zipcode,
+    String? category,
+    String? road,
+    String? parcel,
+    String? bldnm,
+    String? bldnmdc,
+  }) {
     _zipcode = zipcode;
     _category = category;
     _road = road;
     _parcel = parcel;
     _bldnm = bldnm;
     _bldnmdc = bldnmdc;
-}
+  }
 
   Address.fromJson(dynamic json) {
     _zipcode = json['zipcode'];
@@ -202,7 +204,6 @@ class Address {
     map['bldnmdc'] = _bldnmdc;
     return map;
   }
-
 }
 
 /// total : "1"
@@ -211,13 +212,14 @@ class Address {
 
 class Page {
   Page({
-      String? total, 
-      String? current, 
-      String? size,}){
+    String? total,
+    String? current,
+    String? size,
+  }) {
     _total = total;
     _current = current;
     _size = size;
-}
+  }
 
   Page.fromJson(dynamic json) {
     _total = json['total'];
@@ -239,5 +241,4 @@ class Page {
     map['size'] = _size;
     return map;
   }
-
 }

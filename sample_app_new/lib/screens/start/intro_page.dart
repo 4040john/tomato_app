@@ -1,10 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sample_app_new/states/user_provider.dart';
 import 'package:sample_app_new/utils/logger.dart';
 
 class IntroPage extends StatelessWidget {
-  PageController controller;
-  IntroPage(this.controller, {Key? key}) : super(key: key);
+  IntroPage({Key? key}) : super(key: key);
 
   // void onButtonClick() {
   //
@@ -12,6 +14,7 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    logger.d('current user state: ${context.read<UserProvider>().userState}');
     //화면 사이즈가 바뀔떄마다 리빌드
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -76,13 +79,16 @@ class IntroPage extends StatelessWidget {
                         ),
                         backgroundColor: Theme.of(context).primaryColor,
                       ),
-                      onPressed: () {
-                        controller.animateToPage(
+                      onPressed: () async {
+                        context.read<PageController>().animateToPage(
                           1,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.ease,
                         );
                         logger.d('on Text Button Clicked!!!');
+
+                        // var response = await Dio().get('https://randomuser.me/api/');
+                        // logger.d('response::: $response');
                       },
                       child: Text(
                         '내 동네 설정하고 시작하기',
