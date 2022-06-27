@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sample_app_new/constants/common_size.dart';
 import 'package:sample_app_new/repo/user_service.dart';
+import 'package:sample_app_new/utils/logger.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ItemsPage extends StatelessWidget {
@@ -21,7 +22,7 @@ class ItemsPage extends StatelessWidget {
         builder: (context, snapshot) {
           return AnimatedSwitcher(
               duration: Duration(
-                milliseconds: 1000,
+                milliseconds: 300,
               ),
               child: (snapshot.connectionState != ConnectionState.done)
                   ? _shimmerListView(imgSize)
@@ -47,6 +48,7 @@ class ItemsPage extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
+            print('taped');
             UserService().firestoreTest();
           },
           child: SizedBox(
