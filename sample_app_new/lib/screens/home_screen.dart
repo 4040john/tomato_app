@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sample_app_new/screens/home/itmes_page.dart';
+import 'package:sample_app_new/screens/home/items_page.dart';
 import 'package:sample_app_new/states/user_provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              context.read<UserProvider>().setUserAuth(false);
+              FirebaseAuth.instance.signOut();
             },
             icon: Icon(
               CupertinoIcons.nosign,

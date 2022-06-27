@@ -14,7 +14,6 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    logger.d('current user state: ${context.read<UserProvider>().userState}');
     //화면 사이즈가 바뀔떄마다 리빌드
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
