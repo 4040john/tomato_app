@@ -46,10 +46,11 @@ class ItemsPage extends StatelessWidget {
       },
       padding: EdgeInsets.all(common_padding),
       itemBuilder: (context, index) {
-        return GestureDetector(
+        return InkWell(
           onTap: () {
             print('taped');
-            UserService().firestoreTest();
+            UserService().fireStoreReadTest();
+            // UserService().firestoreTest();
           },
           child: SizedBox(
             height: imgSize,
