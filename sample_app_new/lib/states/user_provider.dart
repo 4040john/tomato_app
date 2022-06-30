@@ -41,10 +41,10 @@ class UserProvider extends ChangeNotifier {
         createdDate: DateTime.now().toUtc(),
       );
 
-      logger.d(userModel.toJson().toString());
+      // logger.d(userModel.toJson().toString());
       await UserService().createNewUser(userModel.toJson(), userKey);
-
       _userModel = await UserService().getUserModel(userKey);
+      logger.d(_userModel!.toJson());
     }
   }
 
