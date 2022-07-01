@@ -2,6 +2,7 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sample_app_new/screens/home_screen.dart';
+import 'package:sample_app_new/screens/input/input_screen.dart';
 
 class HomeLocation extends BeamLocation {
   @override
@@ -26,18 +27,7 @@ class InputLocation extends BeamLocation {
       ...HomeLocation().buildPages(context, state),
       if (state.pathBlueprintSegments.contains('input'))
         BeamPage(
-          child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black87,
-              title: Text(
-                'Create new Item',
-              ),
-            ),
-            body: Container(
-              color: Colors.green,
-            ),
-          ),
+          child: InputScreen(),
           key: ValueKey('input'),
         )
     ];
