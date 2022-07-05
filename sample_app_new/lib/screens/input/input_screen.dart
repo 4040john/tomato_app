@@ -1,4 +1,5 @@
 import 'package:beamer/beamer.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sample_app_new/constants/common_size.dart';
 import 'package:sample_app_new/screens/input/multi_image_select.dart';
@@ -86,7 +87,8 @@ class _InputScreenState extends State<InputScreen> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     hintText: '얼마에 파시겠어요?',
-                    icon: Icon(Icons.camera),
+                    icon: ImageIcon(
+                        ExtendedAssetImageProvider('asset/image/won.png')),
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.transparent,
